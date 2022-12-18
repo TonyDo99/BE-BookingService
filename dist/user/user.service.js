@@ -23,8 +23,13 @@ let UserService = class UserService {
         this.userRepository = userRepository;
     }
     async findByEmail(email) {
-        const user = await this.userRepository.findOneBy({
-            email,
+        const user = await this.userRepository.findOne({
+            where: {
+                email,
+            },
+            relations: {
+                tickets: true,
+            },
         });
         if (!user)
             throw new common_1.NotFoundException(`User ${email} does not exist`);

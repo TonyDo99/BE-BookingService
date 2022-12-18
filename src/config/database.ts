@@ -4,20 +4,36 @@ import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 
 @Injectable()
-export class ConnectionDB implements TypeOrmOptionsFactory {
+export class TypeOrmConfigServicesDevelop implements TypeOrmOptionsFactory {
   constructor(private configService: ConfigService) {}
   createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
     return {
       type: 'postgres',
       host: this.configService.get('DB_HOST'),
       password: this.configService.get('DB_PASSWORD'),
-      port: +this.configService.get('DB_PORT'),
+      username: this.configService.get('DB_USERNAME'),
+      port: this.configService.get('DB_PORT'),
       database: this.configService.get('DB_DATABASENAME'),
       autoLoadEntities: true,
       synchronize: true,
     };
   }
 }
+
+@Injectable()
+export class TypeOrmConfigServicesProd implements TypeOrmOptionsFactory {
+  constructor(private configService: ConfigService) {}
+  createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
+    return {
+      type: 'postgres',
+      url: this.configService.get('DB_URL'),
+      autoLoadEntities: true,
+      synchronize: false,
+      ssl: true,
+    };
+  }
+}
+
 const AppDataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',

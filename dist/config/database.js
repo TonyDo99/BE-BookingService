@@ -9,11 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConnectionDB = void 0;
+exports.TypeOrmConfigServicesProd = exports.TypeOrmConfigServicesDevelop = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("typeorm");
-let ConnectionDB = class ConnectionDB {
+let TypeOrmConfigServicesDevelop = class TypeOrmConfigServicesDevelop {
     constructor(configService) {
         this.configService = configService;
     }
@@ -22,18 +22,38 @@ let ConnectionDB = class ConnectionDB {
             type: 'postgres',
             host: this.configService.get('DB_HOST'),
             password: this.configService.get('DB_PASSWORD'),
-            port: +this.configService.get('DB_PORT'),
+            username: this.configService.get('DB_USERNAME'),
+            port: this.configService.get('DB_PORT'),
             database: this.configService.get('DB_DATABASENAME'),
             autoLoadEntities: true,
             synchronize: true,
         };
     }
 };
-ConnectionDB = __decorate([
+TypeOrmConfigServicesDevelop = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [config_1.ConfigService])
-], ConnectionDB);
-exports.ConnectionDB = ConnectionDB;
+], TypeOrmConfigServicesDevelop);
+exports.TypeOrmConfigServicesDevelop = TypeOrmConfigServicesDevelop;
+let TypeOrmConfigServicesProd = class TypeOrmConfigServicesProd {
+    constructor(configService) {
+        this.configService = configService;
+    }
+    createTypeOrmOptions() {
+        return {
+            type: 'postgres',
+            url: this.configService.get('DB_URL'),
+            autoLoadEntities: true,
+            synchronize: false,
+            ssl: true,
+        };
+    }
+};
+TypeOrmConfigServicesProd = __decorate([
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [config_1.ConfigService])
+], TypeOrmConfigServicesProd);
+exports.TypeOrmConfigServicesProd = TypeOrmConfigServicesProd;
 const AppDataSource = new typeorm_1.DataSource({
     type: 'postgres',
     host: 'localhost',
