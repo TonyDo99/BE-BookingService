@@ -12,11 +12,12 @@ const typeorm_1 = require("@nestjs/typeorm");
 const event_controller_1 = require("./event.controller");
 const event_service_1 = require("./event.service");
 const event_entity_1 = require("../entities/event.entity");
+const authen_module_1 = require("../authentication/authen.module");
 let EventModule = class EventModule {
 };
 EventModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.Event])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.Event]), authen_module_1.AuthModule],
         controllers: [event_controller_1.EventController],
         providers: [event_service_1.EventService],
     })

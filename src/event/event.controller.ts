@@ -9,12 +9,15 @@ import {
   Param,
   Patch,
   ParseUUIDPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateEventDto } from './dto/create.dto';
 import { UpdateEventDto } from './dto/update.dto';
 import { EventService } from './event.service';
 import { Event } from '../entities/event.entity';
+import { AuthGuard } from '@nestjs/passport';
 @Controller('event')
+@UseGuards(AuthGuard())
 export class EventController {
   constructor(private readonly eventService: EventService) {}
 

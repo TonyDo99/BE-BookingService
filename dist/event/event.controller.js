@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const create_dto_1 = require("./dto/create.dto");
 const update_dto_1 = require("./dto/update.dto");
 const event_service_1 = require("./event.service");
+const passport_1 = require("@nestjs/passport");
 let EventController = class EventController {
     constructor(eventService) {
         this.eventService = eventService;
@@ -98,6 +99,7 @@ __decorate([
 ], EventController.prototype, "detelevent", null);
 EventController = __decorate([
     (0, common_1.Controller)('event'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)()),
     __metadata("design:paramtypes", [event_service_1.EventService])
 ], EventController);
 exports.EventController = EventController;
