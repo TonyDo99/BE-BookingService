@@ -10,14 +10,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: booking_be_container
-    # Production environment
-    command: yarn start:prod
+    command: yarn start:dev
     env_file:
-      - src/.env.stage.prod
-    # Development environment
-    # command: yarn start:dev
-    # env_file:
-    #   - src/.env.stage.dev
+      - src/.env.stage.dev
     ports:
       - '4000:4000'
     depends_on:
