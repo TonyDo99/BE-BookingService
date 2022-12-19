@@ -12,7 +12,7 @@ services:
     container_name: booking_be_container
     command: yarn start:dev
     env_file:
-      - src/.env.stage.dev
+      - .env.stage.dev
     ports:
       - '4000:4000'
     depends_on:
