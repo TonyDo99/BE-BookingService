@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "8a436747-6251-46f6-9d44-7a7e866f6ee3",
+		"name": "Booking-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7842309"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "FIND BY EMAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{ticket.description}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/find",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VIEW ALL USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZG90YW5waGF0MjExQGdtYWlsLmNvbQ.BsUTVtczDd138cYnNPhOlkX6_yC1L1AWZWp0RP34eNA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/user/listUsers",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"listUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "CREATE EVENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slug\": \"avatar-2\",\n    \"name\": \"Movie: Avatar 2\",\n    \"description\": \"Avatar 2 by James Cameron\",\n    \"poster\": \"Start war\",\n    \"startDate\": \"2022-02-01\",\n    \"endDate\": \"2022-03-23\",\n    \"published\": true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/event/createEvent",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"event",
+								"createEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE EVENT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/event/deleteEvent/ff7435b9-327a-4646-a86a-2f75f361ed18",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"event",
+								"deleteEvent",
+								"ff7435b9-327a-4646-a86a-2f75f361ed18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/event/allEvents",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"event",
+								"allEvents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE EVENT",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slug\": \"avatar-1\",\n    \"name\": \"Movie: Avatar 1\",\n    \"description\": \"Avatar 1 by James Cameron\",\n    \"poster\": \"Start war\",\n    \"start_date\": \"2022-02-01\",\n    \"end_date\": \"2022-03-23\",\n    \"published\": true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/event/updateEvent/8a089112-cf0f-43bc-b6d3-a1d0bedb569b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"event",
+								"updateEvent",
+								"8a089112-cf0f-43bc-b6d3-a1d0bedb569b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:4000/api/event/e65f46cd-8ac5-49df-b069-90da0f8356b6",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"event",
+								"e65f46cd-8ac5-49df-b069-90da0f8356b6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "CREATE TICKET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvdGFucGhhdDIwQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbl91c2VyIiwiaWF0IjoxNjcxMTY0ODI1fQ.fado61N_94WGxTLtqEcCa903CHyvCi1BVYDgDMnJkWo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event\": {\n        \"_id\": \"faa48796-931b-4749-851f-659c56ec49de\"\n    },\n    \"date\": \"2021-12-03\",\n    \"name\": \"Avenger\",\n    \"description\": \"14:00-17:00\",\n    \"price\": 2000,\n    \"quantity\": 14\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ticket/createTicket",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ticket",
+								"createTicket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvdGFucGhhdDIxMUBnbWFpbC5jb20iLCJyb2xlIjoibm9ybWFsX3VzZXIiLCJpYXQiOjE2NzEzNjE5NDl9.iYvQ0MwKxe02lop8BUCJYPPd5FawlU9OFELhTvNM4_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/ticket/allTickets",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ticket",
+								"allTickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUY TICKET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRvdGFucGhhdDIxMUBnbWFpbC5jb20iLCJyb2xlIjoibm9ybWFsX3VzZXIiLCJpYXQiOjE2NzExNzU5NTR9.C03dCDichqIWL766yOBfPPRED4yDB4lNs70WsflKA1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ticket/updateTicket/2ec7f969-1d24-4ef1-a318-c0e17b5f68f7",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ticket",
+								"updateTicket",
+								"2ec7f969-1d24-4ef1-a318-c0e17b5f68f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "CREATE ORDER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZG90YW5waGF0MjExQGdtYWlsLmNvbQ.BsUTVtczDd138cYnNPhOlkX6_yC1L1AWZWp0RP34eNA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event\": \"b29e05ae-edca-46e1-8853-ee4a7c9492c9\",\n    \"ticket\": \"b046480f-b237-4100-98cd-07ed7d23af1a\",\n    \"total_price\": 30000,\n    \"status\": \"confirmd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/order/createOrder",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZG90YW5waGF0MjExQGdtYWlsLmNvbQ.BsUTVtczDd138cYnNPhOlkX6_yC1L1AWZWp0RP34eNA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/order/listOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"listOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"dotanphat211@gmail.com\",\n    \"password\": \"Blue&Berry&1999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SIGN UP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mobilePhone\": \"0826240270\",\n    \"email\": \"dotanphat20@gmail.com\",\n    \"password\": \"Blue*Berry&1998\",\n    \"fullName\": \"Dreamer\",\n    \"role\": \"admin_user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
