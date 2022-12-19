@@ -19,11 +19,6 @@ CRUD - ticket, event, user
 Authen Guard - Jwt
 CORS PROTECTION
 
-## About
+## DOCUMENTS JSON
 
-Account user when register is will be a normal user, admin_user is won't not automatically need to set premission. But u can go to hosting and sign in with account
-
-username: dotanphat@gmail.com
-password: Blue\*Berry&1999
-
--> This account is admin_user
+Booking-Service.postman_collection.json
