@@ -14,7 +14,7 @@ import { validateDevDB, validateProdDB } from './validate/database.joi';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `src/.env.stage.${process.env.NODE_ENV || 'dev'}`,
+      envFilePath: `.env.stage.${process.env.NODE_ENV || 'dev'}`,
       validationSchema:
         process.env.NODE_ENV === 'dev' ? validateDevDB : validateProdDB,
     }),

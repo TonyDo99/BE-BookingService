@@ -23,7 +23,7 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot({
-                envFilePath: `src/.env.stage.${process.env.NODE_ENV || 'dev'}`,
+                envFilePath: `.env.stage.${process.env.NODE_ENV || 'dev'}`,
                 validationSchema: process.env.NODE_ENV === 'dev' ? database_joi_1.validateDevDB : database_joi_1.validateProdDB,
             }),
             typeorm_1.TypeOrmModule.forRootAsync({
